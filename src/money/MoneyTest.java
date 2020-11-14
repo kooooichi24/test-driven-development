@@ -1,7 +1,7 @@
 package money;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class MoneyTest {
     @Test
@@ -11,5 +11,11 @@ public class MoneyTest {
         assertEquals(10, product.amount);
         product = five.times(3);
         assertEquals(15, product.amount);
+    }
+
+    @Test
+    public void testEquality() {
+        assertTrue(new Dollar(5).equals(new Dollar(5)));
+        assertFalse(new Dollar(5).equals(new Dollar(6)));
     }
 }
