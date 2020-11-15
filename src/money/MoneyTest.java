@@ -76,7 +76,7 @@ public class MoneyTest {
 
     @Test
     @DisplayName("同じ通貨の場合は為替レートとして1を返すことをテストする")
-    public void testIdentiryRate() {
+    public void testIdentityRate() {
         assertEquals(1, new Bank().rate("USD", "USD"));
     }
 }
