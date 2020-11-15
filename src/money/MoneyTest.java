@@ -37,4 +37,31 @@ public class MoneyTest {
         Money reduced = bank.reduce(sum, "USD");
         assertEquals(Money.dollar(10), reduced);
     }
+
+    @Test
+    @DisplayName("2つのMoneyの合計がSumのインスタンスであることをテストする")
+    public void testPlusReturnsSum() {
+        Money five = Money.dollar(5);
+        Expression result = five.plus(five);
+        Sum sum = (Sum) result;
+        assertEquals(five, sum.augend);
+        assertEquals(five, sum.addend);
+    }
+
+    @Test
+    @DisplayName("通貨が同じ場合に、Sumで加算された結果とreduceの結果が同一であることをテストする")
+    public void testReduceSum() {
+        Expression sum = new Sum(Money.dollar(3), Money.dollar(4));
+        Bank bank = new Bank();
+        Money result = bank.reduce(sum, "USD");
+        assertEquals(Money.dollar(7), result);
+    }
+
+    @Test
+    @DisplayName("Bankのreduceメソッドの引数にMoneyインスタンスを渡しても、動作することをテストする")
+    public void testReduceMoney() {
+        Bank bank = new Bank();
+        Money result = bank.reduce(Money.dollar(1), "USD");
+        assertEquals(Money.dollar(1), result);
+    }
 }

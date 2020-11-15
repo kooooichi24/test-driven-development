@@ -5,4 +5,5 @@ package money;
  * Moneyは式の最小構成要素である。
  */
 public interface Expression {
+    Money reduce(String to);
 }
