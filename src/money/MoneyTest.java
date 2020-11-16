@@ -4,6 +4,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * 他国通貨Moneyに関してテストするクラス
+ */
 public class MoneyTest {
     @Test
     @DisplayName("ドルの乗算結果をテストする")
